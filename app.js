@@ -1,20 +1,12 @@
-const request = require('request')
+const geocode = require('./utils/geocode')
+const forecast = require('./utils/forecast')
 
-
-// Weather Stack
-const url = 'http://api.weatherstack.com/current?access_key=&query=37.8267,-122.4233'
-// const url = 'http://api.weatherstack.com/current?access_key=&query=37.8267,-122.4233&units=f'
-
-request({ url: url, json: true }, (error, response) => {
-    const data = response.body.current
-    console.log(data.weather_descriptions[0] + '. It is currently ' + data.temperature + ' degrees out. It feels like ' + data.feelslike + ' degrees out')
+forecast(44.1545, -75.7088, (error, data) => {
+    console.log('Error', error)
+    console.log('Data', data)
 })
 
-// Geocoding
-
-const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=&limit=1'
-
-request({ url: geocodeURL, json: true }, (error, response) => {
-    const data = response.body.features[0]
-    console.log('Latitude:- ' + data.center[1] + ' ,Longitude:- ' + data.center[0])
+geocode('Dehradun', (error, data) => {
+    console.log('Error', error)
+    console.log('Data', data)
 })
