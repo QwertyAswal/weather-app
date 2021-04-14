@@ -7,18 +7,17 @@ if (process.argv.length !== 3) {
 }
 
 const location_query = process.argv[2]
-geocode(location_query, (error, geoData) => {
+geocode(location_query, (error, { latitude, longitude, location } = {}) => {
     if (error) {
         console.log(error)
     }
     else {
-        forecast(geoData.latitude, geoData.longitude, (error, forecastData) => {
-            console.log(geoData)
+        forecast(latitude, longitude, (error, forecastData) => {
             if (error) {
                 console.log(error)
             }
             else {
-                console.log(geoData.location)
+                console.log(location)
                 console.log(forecastData)
             }
         })
