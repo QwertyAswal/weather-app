@@ -6,8 +6,9 @@
 ## Usage :-
   * Use :- 'npm run start' to start project
   * Express server is set to listen on port 3000.
-  * Access keys used are from my personal mapbox and weather stack account and are limited to 100,000req/month and 1000req/month respectively.
-  
+  * Access keys should be added to urls on forecast.js and geocode.js at line 4.My personal access keys can be found in previous commits of this project
+
+
 ## Contact the maintainer for any queries.
 
 
